@@ -6,8 +6,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="./lib/jquery.min.js"></script>
     <script src="./lib/jquery-ui.min.js"></script>
-    <script src="./lib/yui-min.js"></script>
-    <link rel="stylesheet" href="./style/style.css">
+    <script src="./lib/yui/yui-base-min.js"></script>
+    <script src="./lib/yui/dom-core-min.js"></script>
+    <script src="./lib/yui/dom-base-min.js"></script>
+    <script src="./lib/yui/dom-style-min.js"></script>
+    <script src="./lib/yui/dom-screen-min.js"></script>
+    <script src="./lib/yui/selector-native-min.js"></script>
+    <script src="./lib/yui/selector-min.js"></script>
+    <script src="./lib/yui/event-delegate-min.js"></script>
+    <script src="./lib/yui/node-base-min.js"></script>
+    <script src="./lib/yui/node-core-min.js"></script>
+    <script src="./lib/yui/node-event-delegate-min.js"></script>
+    <script src="./lib/yui/node-pluginhost-min.js"></script>
+    <script src="./lib/yui/node-screen-min.js"></script>
+    <script src="./lib/yui/node-style-min.js"></script>
+    <script src="./lib/yui/pluginhost-base-min.js"></script>
+    <script src="./lib/yui/pluginhost-config-min.js"></script>
+    <script src="./lib/yui/oop-min.js"></script>
+    <script src="./lib/yui/event-custom-base-min.js"></script>
+    <script src="./lib/yui/event-base-min.js"></script>
+    <link rel="stylesheet" href="./style/style.css"/>
     <title>T-DASH SAMPLE</title>
   </head>
 
@@ -679,7 +697,9 @@
 
 
   //yui
-  YUI().use('node', function(Y) {
+  YUI({
+    base:"/lib/"
+  }).use('node', function(Y) {
     var nodes = Y.all('.yuielement li');
 
     var onClick = function(e) {
