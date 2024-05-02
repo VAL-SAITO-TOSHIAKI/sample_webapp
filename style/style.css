@@ -1,0 +1,143 @@
+.padding_3per {
+    padding: 3%;
+  }
+
+  .tdash_el_area {
+    padding: 2%;
+  }
+
+  textarea {
+    width: 200px;
+    height: 50px;
+  }
+
+  input[type="text"] {
+    width: 200px;
+  }
+/* jquery ui checkbox start*/
+.ss_input {
+	width: 100%;
+	margin-left: 5px;
+	margin-right: 5px;
+}
+.ss_input .checkbox {
+	display: flex;
+	position: relative;
+}
+
+.ss_input .checkbox:not(:last-child) {
+	margin-bottom: 8px;
+}
+
+.ss_input .checkbox label[for] {
+	cursor: pointer;
+}
+
+.ss_input .checkbox__hidden {
+	position: absolute;
+	opacity: 0;
+	width: 13px;
+	height: 13px;
+	margin-right: -13px;
+	transform: translate(50%, 50%);
+}
+
+.ss_input .checkbox__hidden:checked+.checkbox__body .checkbox__body__line::before {
+	width: 100%;
+	transition: width 0.1s;
+}
+
+.ss_input .checkbox__body {
+	width: 20px;
+	height: 20px;
+	display: block;
+	transition: all 0.3s;
+	position: relative;
+	border-radius: 0;
+	border: 1px solid #092054;
+	background-color: #FFF;
+	top: 3px;
+}
+
+.ss_input .checkbox__body__line {
+	position: absolute;
+	height: 2px;
+	display: block;
+}
+
+.ss_input .checkbox__body__line::before {
+	content: "";
+	display: block;
+	width: 0;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	background-color: #092054;
+	transition: opacity 1s;
+}
+
+.ss_input .checkbox__body__line._1 {
+	width: 6px;
+	top: 9px;
+	left: 3px;
+	transform: rotate(45deg);
+}
+
+.ss_input .checkbox__body__line._2 {
+	width: 10px;
+	top: 7px;
+	left: 6px;
+	transform: rotate(-45deg);
+}
+
+.ss_input .checkbox__label {
+	margin-left: 8px;
+	margin-bottom: 0;
+	font-size: 1.4rem;
+	line-height: 2.5rem;
+}
+
+.ss_user_notnull {
+	display: none;
+	min-width: 50px;
+}
+
+.ss_required_field .ss_enquete_title:after,
+.ss_required_field .ss_form_title span {
+	content: "必須";
+	display: block;
+	padding: 0 12px;
+	color: #FFF;
+	font-size: 12px;
+	font-weight: 400;
+	background-color: #E04B67;
+	height: 24px;
+	line-height: 24px
+}
+
+.ss_input input[type=checkbox] {
+	width: 13px;
+	height: 13px;
+	margin-right: 10px;
+	-webkit-appearance: auto;
+	-moz-appearance: auto;
+	appearance: auto
+}
+/*jquery ui checkbox end*/
+ul.yuielement{
+  background:#D4D8EB;
+  border:1px solid #7a97bb;
+  width: 10em;
+  display: inline-block;
+  zoom: 1;
+  list-style: none outside none;
+}
+
+ul.yuielement li {
+    border:1px solid #7a97bb;
+    height: 3em;
+    list-style: none;
+    padding: 1em;
+    zoom:1;
+}

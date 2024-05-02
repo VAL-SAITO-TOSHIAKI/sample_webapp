@@ -4,6 +4,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="./lib/jquery.min.js"></script>
+    <script src="./lib/jquery-ui.min.js"></script>
+    <script src="./lib/yui-min.js"></script>
+    <link rel="stylesheet" href="./style/style.css">
     <title>T-DASH SAMPLE</title>
   </head>
 
@@ -40,7 +44,7 @@
             data-tdash_id="2"
             style="width: 300px"
           >
-T-DASHサンプル画面サイトへようこそ</textarea
+            T-DASHサンプル画面サイトへようこそ</textarea
           >
         </div>
       </div>
@@ -509,6 +513,58 @@ T-DASHサンプル画面サイトへようこそ</textarea
         <h2>Shadow DOM</h2>
         <div id="shadow-dom"></div>
       </div>
+      <div class="tdash_el_area">
+        <h2>動的DOM</h2>
+        <button id="dynamic_dom_button" onclick="create_dynamic_dom();">クリック</button>
+        <div id="dynamic_dom_area" style="width:100%;height:20px;">
+        </div>
+      </div>
+      <div class="tdash_el_area">
+        <h2>jquery UI</h2>
+        <fieldset class="ss_enquete_field ss_required_field" id="">
+          <div >
+            <div class="ss_input js-checkbox" id="ss_check_privacy" data-validation="required">
+              <div class="checkbox">
+                <input type="checkbox" id="jquery-ui-checkbox" name="Enquete_attribute3057[]" class="checkbox__hidden" value="1">
+                <label class="checkbox__body" for="jquery-ui-checkbox">
+                  <span class="checkbox__body__line _1"></span>
+                  <span class="checkbox__body__line _2"></span>
+                </label>
+                <label class="checkbox__label" for="jquery-ui-checkbox">同意する</label>
+              </div>
+
+            </p></div>
+          </div>
+        </fieldset>
+      </div>
+
+      <div class="tdash_el_area">
+        <h2>invisibility （左側に隠しているDIV要素がある。テキストはinsisibility、id="insisibility"）</h2>
+        <div style="border:2px solid #000000;width:100%">
+          <div id="insisibility" style="width:200px;visibility: hidden;">
+            invisibility
+          </div>
+        </div>
+      </div>
+
+      <div class="tdash_el_area">
+        <h2>opacity （左側に見えないDIV要素がある。テキストはopacity0、id="opacity0"）</h2>
+        <div style="border:2px solid #000000;width:100%">
+          <div id="opacity0" style="width:200px;opacity: 0;">
+            opacity0
+          </div>
+        </div>
+      </div>
+      <div class="tdash_el_area">
+        <h2>YUI（動的ID）</h2>
+        <div id="YUIcontainer">
+          <ul class="yuielement">
+            <li><em>Click me if you don't mind...</em></li>
+            <li><em>Click me if you don't mind...</em></li>
+          </ul>
+        </div>
+      </div>
+      
     </div>
   </body>
 </html>
@@ -600,6 +656,19 @@ T-DASHサンプル画面サイトへようこそ</textarea
       alert("キャンセルしました。");
     }
   };
+  const create_dynamic_dom=()=>{
+    const newdiv = document.createElement("div");
+    newdiv.style.backgroundColor = 'red'
+    const newinput = document.createElement("input");
+    newinput.id="dynamic_input"
+    newinput.type="text"
+    newinput.style="width: 300px"
+    newdiv.appendChild(newinput)
+
+    const currentDiv = document.getElementById("dynamic_dom_area");
+
+    currentDiv.appendChild(newdiv)
+  }
 
   //Shadow DOM
   const host = document.querySelector("#shadow-dom");
@@ -607,27 +676,25 @@ T-DASHサンプル画面サイトへようこそ</textarea
   const span = document.createElement("span");
   span.textContent = "Im inside the Shadow DOM";
   shadow.appendChild(span);
+
+
+  //yui
+  YUI().use('node', function(Y) {
+    var nodes = Y.all('.yuielement li');
+
+    var onClick = function(e) {
+        e.currentTarget.addClass('highlight'); // e.currentTarget === .yuielement li 
+        e.target.setHTML('Thanks for the click!'); // e.target === .yuielement li or .yuielement li em
+        e.container.setStyle('border', '5px solid #FFA100'); // e.container === .yuielement
+
+        nodes.filter(':not(.highlight)').setHTML('What about me?');
+    };
+
+    Y.one('.yuielement').delegate('click', onClick, 'li');
+});
 </script>
 
 <!-- css -->
 <style>
-  .padding_3per {
-    padding: 3%;
-  }
-
-  .tdash_el_area {
-    padding: 2%;
-  }
-
-  .tdash_target_element {
-  }
-
-  textarea {
-    width: 200px;
-    height: 50px;
-  }
-
-  input[type="text"] {
-    width: 200px;
-  }
+  
 </style>
