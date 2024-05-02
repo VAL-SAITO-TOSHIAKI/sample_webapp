@@ -679,7 +679,9 @@
 
 
   //yui
-  YUI().use('node', function(Y) {
+  YUI({ 
+        base: './lib/'
+    }).use('node', function(Y) {
     var nodes = Y.all('.yuielement li');
 
     var onClick = function(e) {
